@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Bujjikanna ❤️</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:'Quicksand',sans-serif;
+    background:linear-gradient(#ffd6e8,#fff0f6);
+    text-align:center;
+    overflow:hidden;
+}
+
+/* Screens */
+.screen{
+    display:none;
+    min-height:100vh;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.active{
+    display:flex;
+}
+
+/* Loader */
+.loader-heart{
+    font-size:60px;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+/* Card */
+.card{
+    background:white;
+    width:90%;
+    max-width:380px;
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Titles */
+h1{
+    font-family:'Pacifico',cursive;
+    color:#ff4f81;
+}
+
+h2{
+    font-family:'Dancing Script',cursive;
+    color:#ff6b9a;
+}
+
+/* Cute Images */
+.cute-img{
+    width:150px;
+    border-radius:20px;
+    margin:15px 0;
+}
+
+/* Buttons */
+.buttons{
+    margin-top:25px;
+    position:relative;
+    height:70px;
+}
+
+button{
+    border:none;
+    padding:12px 25px;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+    position:absolute;
+}
+
+#yes{
+    background:#ff5c8a;
+    color:white;
+    left:20%;
+}
+
+#no{
+    background:#eee;
+    color:#666;
+    left:55%;
+}
+
+/* Result */
+.result{
+    font-size:18px;
+    color:#ff4f81;
+}
+
+/* Hearts */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:22px;
+    animation:float 5s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(-900px);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 : LOADING -->
+<div class="screen active" id="screen1">
+
+<div class="loader-heart">💖</div>
+
+<h2>Loading Love...</h2>
+<img class="cute-img"
+src="https://i.postimg.cc/9fbWTzp9/Whats-App-Image-2026-02-12-at-6-36-07-AM.jpg"
+alt="Our Love 💖">
+
+<p>Ready for surprise 😘</p>
+
+</div>
+
+
+<!-- SCREEN 2 : QUESTION -->
+<div class="screen" id="screen2">
+
+<div class="card">
+
+<h1>Happy Valentine's Day 💝</h1>
+
+<h2>My Bujjikanna 😘❤️</h2>
+
+<img class="cute-img"
+src="https://i.postimg.cc/9fbWTzp9/Whats-App-Image-2026-02-12-at-6-36-07-AM.jpg"
+alt="Our Love 💖">
+
+
+<p>
+“Happy Valentine’s Day Bujjikanna 😍 Love you more every day 💖<br>
+
+</p>
+
+<h3>Will You Be My Valentine Forever? 💍</h3>
+
+<div class="buttons">
+
+<button id="yes" onclick="yesLove()">Yes 😍</button>
+<button id="no">No 🙈</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SCREEN 3 : RESULT -->
+<div class="screen" id="screen3">
+
+<div class="card result">
+
+<img class="cute-img"
+src="https://i.postimg.cc/9fbWTzp9/Whats-App-Image-2026-02-12-at-6-36-07-AM.jpg"
+alt="Our Love 💖">
+
+<h1>Yay! Best Day Ever 🥰💖</h1>
+
+
+<p>
+My heart belongs to you 😘💕<br><br>
+Sending you infinite hugs 🫂💖<br>
+“Waiting for the day I can hold you again. ❤️🥺”
+— Your Smitha 💝
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* Switch Screens */
+setTimeout(()=>{
+    document.getElementById("screen1").classList.remove("active");
+    document.getElementById("screen2").classList.add("active");
+},2500);
+
+
+/* NO Button Run */
+const noBtn=document.getElementById("no");
+
+noBtn.addEventListener("mouseover",runAway);
+noBtn.addEventListener("touchstart",runAway);
+
+function runAway(){
+
+    let x=Math.random()*(window.innerWidth-120);
+    let y=Math.random()*(window.innerHeight-120);
+
+    noBtn.style.left=x+"px";
+    noBtn.style.top=y+"px";
+}
+
+
+/* YES */
+function yesLove(){
+
+    document.getElementById("screen2").classList.remove("active");
+    document.getElementById("screen3").classList.add("active");
+}
+
+
+/* Hearts */
+function heart(){
+
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💖";
+
+    h.style.left=Math.random()*100+"vw";
+
+    document.body.appendChild(h);
+
+    setTimeout(()=>h.remove(),5000);
+}
+
+setInterval(heart,400);
+
+</script>
+
+</body>
+</html>
